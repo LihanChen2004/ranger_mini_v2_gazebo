@@ -27,6 +27,19 @@ def generate_launch_description():
                 os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
             ),
         )
+    
+    spawn_robot = Node(
+            package='gazebo_ros',
+            executable='spawn_entity.py',
+            arguments=[
+                '-entity', 'robot',
+                '-topic', 'robot_description',
+                '-x', '0.0',
+                '-y', '0.0',
+                '-z', '0.2',
+                '-Y', '0.0'
+            ],
+        )
 
     robot_state_publisher = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
@@ -45,6 +58,7 @@ def generate_launch_description():
         gzserver,
         gzclient, 
         robot_state_publisher,
+        spawn_robot,
         four_wheel_steering_controller,
         joint_state_broadcaster
     ]

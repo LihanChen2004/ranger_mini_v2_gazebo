@@ -3,13 +3,14 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, Command
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'ranger_mini_gazebo.urdf'
+    urdf_file_name = 'ranger_mini_gazebo.xacro'
 
     print('urdf_file_name : {}'.format(urdf_file_name))
 
@@ -33,8 +34,10 @@ def generate_launch_description():
             name='robot_state_publisher',
             output='screen',
             parameters=[{
-                         'use_sim_time': use_sim_time,
-                         'robot_description': robot_desc,
-                        }],
-            arguments=[urdf]),
+                'use_sim_time': use_sim_time,
+                'robot_description': ParameterValue(
+                    Command(['xacro ', str(urdf)]), value_type=str
+                ),
+            }],
+        )
     ])

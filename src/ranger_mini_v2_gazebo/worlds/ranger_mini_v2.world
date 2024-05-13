@@ -10,11 +10,5 @@
       <uri>model://sun</uri>
     </include>
 
-    <include>
-      <uri>model://ranger_mini_v2</uri>
-      <pose>0 0 0.2 0 0 0</pose>
-      <static>false</static>
-    </include>  
-
   </world>
 </sdf>

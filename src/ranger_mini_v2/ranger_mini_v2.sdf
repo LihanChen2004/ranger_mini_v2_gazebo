@@ -26,7 +26,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ranger_mini_v2/meshes/ranger_base.dae</uri>
+            <uri>file://$(find ranger_mini_v2)/meshes/ranger_mini_v2/meshes/ranger_base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -86,7 +86,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ranger_mini_v2/meshes/fl.dae</uri>
+            <uri>file://$(find ranger_mini_v2)/meshes/ranger_mini_v2/meshes/fl.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -186,7 +186,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ranger_mini_v2/meshes/fr.dae</uri>
+            <uri>file://$(find ranger_mini_v2)/meshes/ranger_mini_v2/meshes/fr.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -286,7 +286,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ranger_mini_v2/meshes/fl.dae</uri>
+            <uri>file://$(find ranger_mini_v2)/meshes/ranger_mini_v2/meshes/fl.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -386,7 +386,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ranger_mini_v2/meshes/fr.dae</uri>
+            <uri>file://$(find ranger_mini_v2)/meshes/ranger_mini_v2/meshes/fr.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -557,7 +557,7 @@
     </ros2_control>
 
     <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>/home/nick/ranger_mini_v2/install/ranger_mini_v2/share/ranger_mini_v2/config/controllers.yaml</parameters>
+      <parameters>$(find ranger_mini_v2)/config/controllers.yaml</parameters>
     </plugin>
 
   </model>
